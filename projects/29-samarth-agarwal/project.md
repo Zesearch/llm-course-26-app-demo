@@ -28,7 +28,7 @@ Traditional penetration testing is a highly manual, time-consuming, and expensiv
 
 ## Solution
 
-The AI Pentest Scanner Standalone is an autonomous security testing pipeline that uses a multi-agent LLM architecture to perform end-to-end security assessments. The system seamlessly chains together four distinct phases: Reconnaissance, Vulnerability Scanning, Exploitation Planning, and Report Generation. By leveraging the reasoning capabilities of Large Language Models (LLMs), the application not only discovers security flaws but also intelligently contextualizes them, eliminating false positives and generating professional-grade security deliverables (Markdown, HTML, JSON, and PDF) automatically.
+The AI Pentest Scanner is an autonomous security testing pipeline that uses a multi-agent LLM architecture to perform end-to-end security assessments. The system seamlessly chains together four distinct phases: Reconnaissance, Vulnerability Scanning, Exploitation Planning, and Report Generation. By leveraging the reasoning capabilities of Large Language Models (LLMs), the application not only discovers security flaws but also intelligently contextualizes them, eliminating false positives and generating professional-grade security deliverables (Markdown, HTML, JSON, and PDF) automatically.
 
 ## User Flow
 

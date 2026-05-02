@@ -8,7 +8,7 @@ tags:
  - multi-agent
  - penetration-testing
  - llm
-category: Cybersecurity
+category: Agentic AI App
 tagline: An autonomous, AI-driven penetration testing pipeline leveraging multi-agent systems for comprehensive security scanning.
 featuredEligible: true
 
@@ -16,9 +16,9 @@ semester: "Spring 2026"
 
 shortTitle: "AI Pentest Agent"
 studentId: "116558930"
-videoUrl: ""
-thumbnail: ""
-githubUrl: ""
+videoUrl: "https://drive.google.com/file/d/1Wf6N6FL9DPZR7m72UvMY25flsRHMrr3R/view?usp=sharing"
+thumbnail: "https://drive.google.com/file/d/12nkWFm15-xiRcqa_ysb1zecc5ZXAMXYA/view?usp=sharing"
+githubUrl: "https://github.com/samarth70/AI-Pentest-Scanner"
 ---
 
 ## Problem

@@ -1,31 +1,3 @@
----
-slug: 08-dhruv-rathee
-title: CodeStory
-
-students:
-  - Dhruv Rathee
-
-tags:
-  - git-archaeology
-  - code-understanding
-  - developer-tools
-  - llama
-  - fastapi
-
-category: developer-tools
-tagline: AI-powered git archaeology that explains why code exists.
-featuredEligible: true
-
-semester: "Spring 2026"
-
-shortTitle: ""
-studentId: ""
-videoUrl: https://drive.google.com/file/d/1bFvYFgrMZb0mull7C-S4-7jJwPyTUhZr/view?usp=sharing
-thumbnail: https://drive.google.com/file/d/1aJq8MpYtUvCclOpJRhZjBfswiojqyezc/view?usp=sharing
-githubUrl: ""
----
-
-
 ## Project Title
 
 CodeStory
@@ -66,3 +38,4 @@ The app uses Llama 3.2 to turn raw git history into a concise explanation. The *
 - Python
 - JavaScript
 - HTML/CSS
+

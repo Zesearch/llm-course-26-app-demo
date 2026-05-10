@@ -13,8 +13,8 @@ featuredEligible: true
 semester: Spring 2026
 shortTitle: ResumeAlign
 studentId:
-videoUrl: YOUR_GOOGLE_DRIVE_VIDEO_LINK
-thumbnail: YOUR_GOOGLE_DRIVE_THUMBNAIL_LINK
+videoUrl: https://drive.google.com/file/d/17U3luhcov_AyYSfFrJ5f9glmrIVR2iFK/view?usp=sharing
+thumbnail: https://drive.google.com/file/d/1Ejv_9z0byccFM-wf4fMZDGreF8hPgQ2Z/view?usp=sharing
 githubUrl: https://github.com/Codingaditya17/llm-course-26-app-demo
 ---
 

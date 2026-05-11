@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout PR branch
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # PR diff 계산을 위해 전체 history 필요
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -20,5 +22,40 @@ jobs:
       - name: Install dependencies
         run: pip install python-frontmatter pyyaml
 
-      - name: Validate all project.md files
-        run: python scripts/build_s26_json.py --check --verbose
+      - name: Find changed student folders
+        id: changed
+        run: |
+          # PR에서 변경된 파일들 찾기
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'projects/*/project.md')
+          
+          # 학생 폴더명(slug) 추출
+          SLUGS=$(echo "$CHANGED_FILES" | sed -n 's|projects/\([^/]*\)/project.md|\1|p' | sort -u)
+          
+          if [ -z "$SLUGS" ]; then
+            echo "No student project.md files changed in this PR."
+            echo "slugs=" >> $GITHUB_OUTPUT
+          else
+            echo "Changed student slugs:"
+            echo "$SLUGS"
+            echo "slugs<<EOF" >> $GITHUB_OUTPUT
+            echo "$SLUGS" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Validate only changed student folders
+        if: steps.changed.outputs.slugs != ''
+        run: |
+          # 각 변경된 학생 폴더를 개별 검증
+          FAILED=0
+          while IFS= read -r slug; do
+            if [ -n "$slug" ]; then
+              echo "=========================================="
+              echo "Validating: $slug"
+              echo "=========================================="
+              python scripts/build_s26_json.py --only "$slug" --check --verbose || FAILED=1
+            fi
+          done <<< "${{ steps.changed.outputs.slugs }}"
+          
+          if [ $FAILED -eq 1 ]; then
+            exit 1
+          fi

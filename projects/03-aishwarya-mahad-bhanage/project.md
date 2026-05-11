@@ -13,15 +13,14 @@ tags:
 category: developer-tools
 tagline: An LLM-powered debugging tool for broken dbt data pipelines — diagnoses root cause and suggests corrected SQL in ~4 seconds.
 featuredEligible: true
-semester: Spring 2026
+semester: "Spring 2026"
 shortTitle: DataLineage AI
 studentId: "116556145"
 videoUrl: https://drive.google.com/file/d/1bRiTiioJKlp9P0uUDwJ96YxXG58x3-Ga/view?usp=drive_link
-thumbnail: https://drive.google.com/file/d/103iLEA1uymQPKi4RjdVTPytaOC0DexVz/view?usp=drive_link
+thumbnail: /thumbnails/03-aishwarya-mahad-bhanage.png
 githubUrl: https://github.com/AishwaryaBhanage/AI-DataLineage
 liveUrl: http://datali-Publi-qsZNW7jcIFUB-1558367737.us-east-1.elb.amazonaws.com
 ---
-
 ## Problem
 
 Data engineers using dbt (data build tool) lose 30–60 minutes per failure manually tracing broken pipelines. When a model fails, the warehouse returns a single cryptic error like `Binder Error: Referenced column "amount" not found`, and the engineer must open the failing SQL, identify the missing column, trace upstream through 3–10 dependency layers, and find where the column was renamed, dropped, or never existed. The warehouse only reports one error at a time, so fixing one reveals the next — a frustrating iterative cycle that production dbt teams hit multiple times daily.

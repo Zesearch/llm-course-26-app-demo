@@ -5,11 +5,10 @@ sid: "117291342"
 semester: "s26"
 category: "developer-tools"
 tags: ["multi-agent", "langgraph", "content-generation", "nlp", "rag"]
-thumbnail: "https://drive.google.com/file/d/1gcT9Vu42t78BLpzFexai7Nr60_hiaue7/view?usp=sharing"
+thumbnail: /thumbnails/18-meet-naresh-brahmbhatt.jpg
 video: "https://drive.google.com/file/d/1UsR38H6tjVJFMIPJ9dHWXZYOjvL6B5pF/view?usp=sharing"
 github: "https://github.com/iMeet07/deepwrite"
 ---
-
 # DeepWrite: The Agentic Planning & Research Engine
 
 A multi-agent AI pipeline that researches, plans, writes, fact-checks, and SEO-audits a full technical blog post — end to end — in under 90 seconds.

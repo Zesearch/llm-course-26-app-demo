@@ -14,7 +14,7 @@ semester: "Spring 2026"
 shortTitle: ResumeAlign
 studentId:
 videoUrl: https://drive.google.com/file/d/17U3luhcov_AyYSfFrJ5f9glmrIVR2iFK/view?usp=sharing
-thumbnail: /thumbnails/02-aditya-nahush-patel.jpg
+thumbnail: /thumbnails/02-aditya-nahush-patel.png
 githubUrl: https://github.com/Codingaditya17/llm-course-26-app-demo
 ---
 

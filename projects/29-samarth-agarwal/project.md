@@ -17,10 +17,9 @@ semester: "Spring 2026"
 shortTitle: "AI Pentest Agent"
 studentId: "116558930"
 videoUrl: "https://drive.google.com/file/d/1Wf6N6FL9DPZR7m72UvMY25flsRHMrr3R/view?usp=sharing"
-thumbnail: "https://drive.google.com/file/d/12nkWFm15-xiRcqa_ysb1zecc5ZXAMXYA/view?usp=sharing"
+thumbnail: /thumbnails/29-samarth-agarwal.png
 githubUrl: "https://github.com/samarth70/AI-Pentest-Scanner"
 ---
-
 ## Problem
 
 Traditional penetration testing is a highly manual, time-consuming, and expensive process. As digital infrastructures grow and cyber threats evolve rapidly, organizations struggle to maintain continuous security posture assessments. There is a critical need for an automated, intelligent system that can simulate attacker reconnaissance, identify vulnerabilities, and document findings without requiring constant human intervention.

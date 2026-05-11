@@ -15,7 +15,7 @@ featuredEligible: true
 semester: "Spring 2026"
 
 shortTitle: "DiagRAG"
-studentId: ""
+studentId: "116651954"
 videoUrl: "https://drive.google.com/file/d/1RyGGYEFlMA0vAyVdClLAQMvYyjwU0T_9/view?usp=drive_link"
 thumbnail: "https://drive.google.com/file/d/1n2hqyEk-5hlHIBHfAsak99Du6DfEejO2/view?usp=drive_link"
 githubUrl: "https://github.com/Zesearch/llm-course-26-app-demo/tree/main/projects/07-devshree-hardiksinh-jadeja"

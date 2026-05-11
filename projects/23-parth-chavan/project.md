@@ -15,10 +15,9 @@ tagline: Predict heart disease risk with ML, explained in plain English by AI.
 featuredEligible: true
 semester: "Spring 2026"
 videoUrl: https://drive.google.com/file/d/1rfAXdzpaEuyyvetCQqYYLB5-JQVj1AMO/view?usp=drive_link
-thumbnail: https://drive.google.com/file/d/1nJgwOpK2sFgFtfFfBizDpfCunngG06fV/view?usp=drive_link
+thumbnail: /thumbnails/23-parth-chavan.png
 githubUrl: https://github.com/Parthchavann/heart-disease-risk-prediction
 ---
-
 ## Problem
 
 Heart disease is the leading cause of death globally, yet most people have no idea of their personal risk until symptoms appear. Standard risk tools give a number with no explanation, leaving patients confused about what to change and what questions to ask their doctor.

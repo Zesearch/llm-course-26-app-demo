@@ -27,12 +27,10 @@ studentId: "116753960"
 
 videoUrl: "https://drive.google.com/file/d/192tbcyevu4LdEVng_V4A-CWE5McyFzp_/view?usp=drive_link"
 
-thumbnail: "https://drive.google.com/file/d/1gdPYQtnrtYV9hOIMG9Q20Npz8GBgifVb/view?usp=drive_link"
+thumbnail: /thumbnails/25-rutika-avinash-kadam.png
 
 githubUrl: "https://github.com/RutikaKadam10/decoding_sas_project"
 ---
-
-
 ## Problem
 
 Researchers working with SAS statistical models are often technically proficient — capable of writing and executing models — but lack the domain knowledge to interpret complex outputs. Existing public AI tools like ChatGPT or Gemini can help, but sensitive research data cannot be shared with public interfaces due to privacy and confidentiality concerns.

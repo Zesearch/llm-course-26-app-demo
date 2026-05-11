@@ -18,11 +18,9 @@ semester: "Spring 2026"
 shortTitle: MindJournal
 studentId: ""
 videoUrl: https://drive.google.com/file/d/1Vdd6iuA10Mv8urUzUMK53ute4jPqHIMx/view?usp=sharing
-thumbnail: https://drive.google.com/file/d/1oUz08nF6HpocAbUBzr3rcdzu76M08d_j/view?usp=sharing
+thumbnail: /thumbnails/28-sakshi-janak-shah.png
 githubUrl: https://github.com/sakshishah12
 ---
-
-
 ## Problem
 
 Students and young professionals often journal about stress, self-doubt, burnout, and emotional overload, but it is difficult to consistently extract patterns from those entries on their own. A plain notes app stores thoughts, but it does not help users understand emotional triggers, connect those feelings to lifestyle context, or turn repeated reflection into practical next steps.

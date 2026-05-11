@@ -16,10 +16,9 @@ semester: "Spring 2026"
 shortTitle: "ExamProfile AI"
 studentId: "115495917"
 videoUrl: ""
-thumbnail: ""
+thumbnail: /thumbnails/15-justin-lee.jpeg
 githubUrl: "https://github.com/justinlee166/ExamReplica-AI"
 ---
-
 ## Problem
 
 Students in quantitative STEM courses often study from scattered materials: lecture slides, homework sets, old exams, review sheets, and handwritten notes. Generic practice questions do not always match how a specific professor writes exams, emphasizes topics, or grades reasoning. As a result, students can spend a lot of time practicing problems that are too broad, too easy, or disconnected from the actual assessment style of their course.

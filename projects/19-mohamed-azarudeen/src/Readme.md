@@ -1,123 +1,94 @@
-# ◈ DataLens AI — v2.0
+---
+slug: ai-data-viz-agent
+title: DataLens AI — Natural Language Data Visualization Agent
+students:
+  - "Mohamed Azarudeen"
+tags:
+  - data-visualization
+  - local-llm
+  - fastapi
+  - react
+  - e2b
+  - sandboxed-execution
+category: data-science
+tagline: Ask your data anything in plain English — get instant, sandboxed visualizations powered by local LLMs.
+featuredEligible: true
+semester: "Spring 2026"
+shortTitle: "DataLens AI"
+studentId: "116514556"
+videoUrl: "https://drive.google.com/file/d/1ZrVg6_y_JkN5OIs9vD4EWyW7ocJ8UCB3/view?usp=drive_link"
+thumbnail: "https://drive.google.com/file/d/1SjsXGjxF20FwZIwQaKqeRmcsabvoDdi7/view?usp=sharing"
+githubUrl: "https://github.com/AzaRKazar/llm-course-26-app-demo/tree/main/projects/19-mohamed-azarudeen/src"
+---
 
-> Natural language → instant data visualization, powered by local LLMs and sandboxed execution.
+## Problem
 
-## Architecture
+Data analysis is powerful but inaccessible. Business users and non-programmers sit on rich CSV datasets but cannot query them without SQL or Python knowledge. Existing tools either require cloud APIs (privacy concerns) or complex setup. Even simple questions like *"which city has the most customers?"* demand code.
+
+## Solution
+
+**DataLens AI** is a full-stack agentic application that bridges natural language and data insight. The user uploads any CSV file, asks a plain-English question, and receives an auto-generated, safely executed Python visualization — all running on a local LLM with no data ever sent to a third-party model.
+
+Key design decisions:
+- **FastAPI backend** with a clean layered architecture (routers → services → models), making each concern independently testable
+- **Local Ollama LLM** (Llama, Mistral, DeepSeek, Qwen) keeps sensitive data on-premises
+- **E2B sandboxed execution** — generated code never runs on the server; it executes in an isolated cloud micro-VM, preventing code injection or data leaks
+- **React frontend** replaces Streamlit for a production-grade, component-driven UX with real-time feedback and query history
+
+## User Flow
+
+1. **Configure** — Enter E2B API key and select a local model from the sidebar
+2. **Upload** — Drag-and-drop a CSV; the backend parses it, normalizes column names, and returns schema metadata instantly
+3. **Query** — Type any natural language question (or pick a suggestion chip); press ⌘ Enter
+4. **Analyze** — The backend:
+   - Builds a schema-aware system prompt
+   - Calls the local Ollama model to generate Python code
+   - Uploads the CSV to an E2B sandbox and executes the code
+   - Returns the rendered PNG chart (or text output) with execution time
+5. **Explore** — Switch between Chart / Code / LLM Response tabs; revisit past queries from the history rail
+
+## System Design
 
 ```
-ai-data-viz-agent/
-├── backend/                  FastAPI backend
-│   ├── main.py               App entry point + CORS
-│   ├── core/
-│   │   └── config.py         Pydantic settings (.env)
-│   ├── routers/
-│   │   ├── health.py         GET /api/health
-│   │   └── analysis.py       POST /api/analysis/upload|run
-│   ├── services/
-│   │   ├── dataset_service.py  CSV parsing, session store, schema
-│   │   ├── llm_service.py      Ollama prompt + code extraction
-│   │   └── sandbox_service.py  E2B isolated execution
-│   ├── models/
-│   │   └── schemas.py        Pydantic request/response models
-│   ├── requirements.txt
-│   └── Dockerfile
-│
-├── frontend/                 React + Vite frontend
-│   ├── src/
-│   │   ├── components/       Header, ConfigPanel, UploadZone,
-│   │   │                     DatasetPreview, QueryPanel, ResultPanel
-│   │   ├── lib/api.js        Axios API client
-│   │   ├── App.jsx           Top-level state + layout
-│   │   └── index.css         CSS design system variables
-│   ├── vite.config.js        Dev proxy → backend :8000
-│   ├── package.json
-│   └── Dockerfile
-│
-├── project.md                Showcase submission
-├── docker-compose.yml        One-command local dev
-└── README.md
+┌─────────────────────────────────────────────────┐
+│                  React Frontend                 │
+│  ConfigPanel · UploadZone · QueryPanel          │
+│  DatasetPreview · ResultPanel · HistoryBar      │
+└───────────────────┬─────────────────────────────┘
+                    │ REST (JSON)
+┌───────────────────▼─────────────────────────────┐
+│             FastAPI Backend                     │
+│  POST /api/analysis/upload                      │
+│  POST /api/analysis/run                         │
+│  GET  /api/health                               │
+│                                                 │
+│  ┌─────────────────────────────────────────┐    │
+│  │ Routers → Services → Pydantic Models    │    │
+│  │                                         │    │
+│  │  dataset_service  (parse, session store)│    │
+│  │  llm_service      (Ollama, code extract)│    │
+│  │  sandbox_service  (E2B execution)       │    │
+│  └─────────────────────────────────────────┘    │
+└───────┬──────────────────────┬──────────────────┘
+        │                      │
+┌───────▼──────┐   ┌───────────▼──────────────────┐
+│  Ollama LLM  │   │     E2B Cloud Sandbox         │
+│  (localhost) │   │  (isolated Python runtime)    │
+└──────────────┘   └──────────────────────────────┘
 ```
 
-## Quick Start
+## LLM Components
 
-### Prerequisites
+- **Schema-aware prompting** — The system prompt includes normalized column names, dtypes, and sample values so the model generates accurate column references without guessing
+- **Code extraction** — Regex-based extractor pulls the first valid `python` fenced block from the LLM response, stripping any explanation text
+- **Column normalization guard** — Both backend and sandbox inject a normalization step before model code runs, preventing column-name mismatches
+- **Model choice** — Users pick from five local models (Llama 3.1/3.2, DeepSeek R1, Qwen 2.5, Mistral) to balance speed vs. reasoning depth
 
-| Tool | Purpose |
-|------|---------|
-| Python 3.11+ | Backend runtime |
-| Node.js 20+ | Frontend build |
-| [Ollama](https://ollama.com/download) | Local LLM runtime |
-| E2B API key | Sandboxed code execution |
+## Tools
 
-### 1. Clone
-
-```bash
-git clone https://github.com/<your-username>/ai-data-viz-agent.git
-cd ai-data-viz-agent
-```
-
-### 2. Pull a local model
-
-```bash
-ollama pull llama3.1:8b        # or any supported model
-```
-
-### 3. Backend
-
-```bash
-cd backend
-cp .env.example .env           # add your E2B_API_KEY
-pip install -r requirements.txt
-uvicorn main:app --reload
-# → http://localhost:8000
-# → http://localhost:8000/docs  (Swagger UI)
-```
-
-### 4. Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-# → http://localhost:5173
-```
-
-### 5. (Optional) Docker Compose
-
-```bash
-E2B_API_KEY=your_key docker compose up
-```
-
-## API Reference
-
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/api/health` | Health check |
-| POST | `/api/analysis/upload` | Upload CSV → `DatasetMeta` + `session_id` |
-| POST | `/api/analysis/run` | Run NL query → chart PNG + code + timing |
-
-Full interactive docs at `http://localhost:8000/docs`.
-
-## How It Works
-
-1. **Upload** — CSV parsed by Pandas, columns normalized, stored in session memory with a UUID
-2. **Prompt** — Backend builds a schema-aware system prompt including column names, dtypes, sample values
-3. **Generate** — Local Ollama model returns Python code inside a fenced block
-4. **Execute** — Code + CSV uploaded to an E2B micro-VM sandbox; result PNG streamed back
-5. **Display** — React frontend renders chart, code, and LLM explanation in tabbed view
-
-## Supported Models
-
-| Model | Size | Best for |
-|-------|------|----------|
-| Llama 3.1 8B | 8B | Fast general analysis |
-| Llama 3.2 | 3B | Lightweight / quick |
-| DeepSeek R1 7B | 7B | Step-by-step reasoning |
-| Qwen 2.5 7B | 7B | Balanced |
-| Mistral | 7B | Flexible |
-
-## Security
-
-- **No model API calls** — all LLM inference stays on your machine via Ollama
-- **Sandboxed execution** — generated code runs in E2B's isolated VM, not on your server
-- **No data persistence** — sessions are in-memory; CSV bytes are never written to disk on the backend
+- **Backend:** FastAPI, Uvicorn, Pydantic v2, Ollama Python SDK
+- **LLM Runtime:** Ollama (local, on-premises)
+- **Sandboxed Execution:** E2B Code Interpreter SDK
+- **Data:** Pandas
+- **Frontend:** React 18, Vite, CSS Modules, lucide-react, react-dropzone
+- **Dev:** Docker Compose (optional), `.env` config

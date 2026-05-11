@@ -16,11 +16,9 @@ semester: "Spring 2026"
 shortTitle: "DiffScribe"
 studentId: "116599159"
 videoUrl: "https://drive.google.com/file/d/1a3uonsx-wxIhA03DKlFCESvjv6cjKKVc/view?usp=drive_link"
-thumbnail: "https://drive.google.com/file/d/1IkqDroKG_2HqcNZcFVyD9P-ch8Grci4F/view?usp=drive_link"
+thumbnail: /thumbnails/20-omkar-rane.png
 githubUrl: https://github.com/omkarrane30
 ---
-
-
 ## Problem
 
 Writing clear pull request descriptions is slow and error-prone. Reviewers need context, risk notes, and testing guidance, but authors often face a large diff and an empty description box. Manually summarizing every file, inferring intent, and keeping tone consistent across internal and open-source workflows takes time that could go into code review itself.

@@ -1,4 +1,4 @@
-# Project Overview: LLM Trust Estimation via Claim-Level Verification
+# LLM Trust Estimation via Claim-Level Verification
 
 ## 1. Project Summary
 

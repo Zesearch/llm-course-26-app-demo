@@ -1,12 +1,12 @@
 # Project Overview: LLM Trust Estimation via Claim-Level Verification
 
-## 1. Project Summary
+## Project Summary
 
 This project is a lightweight LLM answer trust estimation system for natural science question answering. Instead of trusting a model's first response directly, the system generates a draft answer, extracts the key claims inside it, verifies those claims with follow-up questions, and then computes a rule-based trust score.
 
 The main goal is not just to produce an answer, but to estimate whether that answer should be accepted, flagged as low confidence, or withheld.
 
-## 2. Problem
+## Problem
 
 Large language models can produce fluent and plausible answers even when parts of the reasoning are wrong, incomplete, or fabricated. In scientific Q&A, this is especially risky because users may trust a confident explanation that contains incorrect mechanisms, calculations, or factual statements.
 
@@ -16,7 +16,7 @@ The core problem this project addresses is:
 - How can we do this without exposing or depending on full hidden chain-of-thought?
 - How can we make the final confidence judgment interpretable rather than purely intuitive?
 
-## 3. Solution
+## Solution
 
 The project implements a claim-level verification pipeline inspired by CoVe-style verification:
 
@@ -31,7 +31,7 @@ The project implements a claim-level verification pipeline inspired by CoVe-styl
 
 This makes the system more transparent than a single-pass LLM answer, because the confidence judgment is grounded in claim-level evidence.
 
-## 4. User Flow
+## User Flow
 
 ### CLI flow
 
@@ -56,7 +56,7 @@ This makes the system more transparent than a single-pass LLM answer, because th
 
 The project also provides an embeddable widget through `web/widget.js`.
 
-## 5. System Architecture
+## System Architecture
 
 ### Entry points
 
@@ -89,7 +89,7 @@ The project also provides an embeddable widget through `web/widget.js`.
 - `trust_estimator/lang.py`
   Handles language normalization and bilingual behavior.
 
-## 6. LLM Components
+## LLM Components
 
 This project uses LLMs in a structured, modular way instead of one single free-form generation step.
 
@@ -162,7 +162,7 @@ Non-LLM logic includes:
 
 This hybrid design improves interpretability and reduces the chance that a second LLM pass simply repeats the first answer's bias.
 
-## 8. Scoring and Decision Policy
+## Scoring and Decision Policy
 
 The system computes a `trust_score` in the range `[0, 1]`, with emphasis on core claims:
 
@@ -182,7 +182,7 @@ There are also hard rules:
 - If a critical or final-supporting claim is refuted, the system may directly abstain.
 - If multiple core claims remain uncertain, the system may abstain even when the average score is moderate.
 
-## 9. Inputs and Outputs
+## Inputs and Outputs
 
 ### Input
 
@@ -214,7 +214,7 @@ The pipeline returns structured JSON with fields such as:
 
 This output is useful both for interactive use and for debugging or analysis.
 
-## 10. Tools and Technologies Used
+## Tools and Technologies Used
 
 ### Models and APIs
 
@@ -243,7 +243,7 @@ This output is useful both for interactive use and for debugging or analysis.
 - `environment.yml`
 - Conda or `venv`
 
-## 11. Repository Structure
+## Repository Structure
 
 ```text
 llm_detector/
@@ -272,7 +272,7 @@ llm_detector/
     └── mock_output_reaction_rate.json
 ```
 
-## 12. Why This Project Is Interesting
+## Why This Project Is Interesting
 
 This project is interesting because it treats answer reliability as a first-class problem rather than an afterthought. Instead of asking "What answer did the model generate?", it asks "Which parts of the answer are carrying the conclusion, and do those parts survive independent checking?"
 
@@ -283,7 +283,7 @@ That makes the system useful for:
 - demonstrations of inference-time self-verification
 - research prototypes for selective answering and abstention
 
-## 13. Current Limitations
+## Current Limitations
 
 - The project is currently focused on natural science questions rather than general-domain QA.
 - Verification still depends on the same underlying model family unless the backend is extended.
@@ -291,7 +291,7 @@ That makes the system useful for:
 - Keyword-based relevance checks are intentionally simple and may miss some semantic matches.
 - Mock mode only supports a limited set of predefined topics.
 
-## 14. Possible Future Improvements
+## Possible Future Improvements
 
 - Use separate models for answer generation and verification.
 - Add retrieval or tool use for external evidence grounding.
@@ -300,6 +300,6 @@ That makes the system useful for:
 - Store traces for experiment analysis and error studies.
 - Add benchmark scripts and quantitative evaluation metrics.
 
-## 15. One-Sentence Pitch
+## One-Sentence Pitch
 
 This project builds a claim-by-claim trust checker for LLM scientific answers, combining structured OpenAI generation with independent verification and rule-based confidence decisions.

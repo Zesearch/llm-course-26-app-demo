@@ -7,8 +7,8 @@ tags:
   - developer-tools
   - visualizer
   - dataset
-category: developer tool
-tagline: "AI Powered Dataset Health checker to identify inconsistencies or anomalies."
+category: developer-tools
+tagline: 
 featuredEligible: true
 
 semester: "Spring 2026"
@@ -16,12 +16,9 @@ semester: "Spring 2026"
 shortTitle: "ModelScope-Lite"
 studentId: "116496667"
 videoUrl: "https://drive.google.com/file/d/1ad5Qmceyz_JEycp2rFVtExe7z9HbIjce/view?usp=drive_link"
-thumbnail: "https://drive.google.com/file/d/1z8GjMl7qcUT97MMfedU2MdMzT8pEBMzP/view?usp=drive_link"
-githubUrl: "https://github.com/solhapark"
+thumbnail: /thumbnails/34-venkata-sai-ashrit-kommireddy.png
+githubUrl: https://github.com/solhapark
 ---
-
-
-
 ## Problem
 
 Tabular datasets used for modeling are often messy before training: missing values, duplicate rows, redundant numeric features (high pairwise correlation), and skewed label distributions. Practitioners need a lightweight way to **inspect**, **quantify quality**, and optionally **clean** data without opening a notebook for every file.

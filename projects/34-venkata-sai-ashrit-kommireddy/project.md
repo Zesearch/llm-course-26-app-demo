@@ -13,7 +13,7 @@ featuredEligible: true
 
 semester: "Spring 2026"
 
-shortTitle: ""
+shortTitle: "ModelScope-Lite"
 studentId: "116496667"
 videoUrl: "https://drive.google.com/file/d/1ad5Qmceyz_JEycp2rFVtExe7z9HbIjce/view?usp=drive_link"
 thumbnail: /thumbnails/34-venkata-sai-ashrit-kommireddy.png

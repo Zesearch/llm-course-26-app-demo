@@ -8,7 +8,7 @@ tags:
   - visualizer
   - dataset
 category: developer-tools
-tagline: 
+tagline: Instant dataset health checks and AI-powered insights for cleaner model-ready data.
 featuredEligible: true
 
 semester: "Spring 2026"

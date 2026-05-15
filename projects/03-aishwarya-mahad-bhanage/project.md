@@ -1,5 +1,5 @@
 ---
-slug: 03-datalineageAI-aishwarya-bhanage
+slug: 03-aishwarya-mahad-bhanage
 title: DataLineage AI
 students:
   - Aishwarya Bhanage
@@ -9,9 +9,8 @@ tags:
   - debugging
   - langgraph
   - claude
-  - aws
 category: developer-tools
-tagline: An LLM-powered debugging tool for broken dbt data pipelines — diagnoses root cause and suggests corrected SQL in ~4 seconds.
+tagline: LLM-powered debugger for broken dbt pipelines — root cause + fixed SQL in ~4s
 featuredEligible: true
 semester: "Spring 2026"
 shortTitle: DataLineage AI
@@ -19,7 +18,6 @@ studentId: "116556145"
 videoUrl: https://drive.google.com/file/d/1bRiTiioJKlp9P0uUDwJ96YxXG58x3-Ga/view?usp=drive_link
 thumbnail: /thumbnails/03-aishwarya-mahad-bhanage.png
 githubUrl: https://github.com/AishwaryaBhanage/AI-DataLineage
-liveUrl: http://datali-Publi-qsZNW7jcIFUB-1558367737.us-east-1.elb.amazonaws.com
 ---
 ## Problem
 
